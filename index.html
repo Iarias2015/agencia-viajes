@@ -14,7 +14,7 @@
 
     <section>
         <h2>Reserva tu viaje</h2>
-        <form action="enviar-datos.php" method="POST">
+        <form id="formBusqueda">
             <label for="destino">Destino:</label>
             <input type="text" id="destino" name="destino" required placeholder="Ejemplo: París">
 
@@ -23,6 +23,10 @@
 
             <button type="submit">Buscar vuelos</button>
         </form>
+
+        <div id="resultadoBusqueda">
+            <!-- Aquí se mostrarán los resultados de búsqueda -->
+        </div>
     </section>
 
     <section>
@@ -34,10 +38,25 @@
         <h2>Testimonios</h2>
         <p>"Gracias a esta agencia, pude viajar a mi destino soñado. ¡El servicio fue excelente!" - Cliente feliz</p>
     </section>
+
     <img src="imagen1.jpg" alt="Descripción de la imagen 1">
     <img src="imagen2.jpg" alt="Descripción de la imagen 2">
-    
 
+    <script>
+        document.getElementById('formBusqueda').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío del formulario
+
+            const destino = document.getElementById('destino').value;
+            const fecha = document.getElementById('fecha').value;
+            const resultado = document.getElementById('resultadoBusqueda');
+
+            if(destino && fecha) {
+                resultado.innerHTML = `<p>Mostrando resultados de vuelos para <strong>${destino}</strong> el <strong>${fecha}</strong>.</p>`;
+            } else {
+                resultado.innerHTML = "<p>Por favor, completa todos los campos.</p>";
+            }
+        });
+    </script>
 
 </body>
 </html>
