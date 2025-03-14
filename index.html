@@ -4,17 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agencia de Viajes</title>
+    <link rel="stylesheet" href="style.css"> <!-- Enlace a tu archivo CSS -->
 </head>
 <body>
-    <h1>Bienvenido a nuestra Agencia de Viajes</h1>
-    <form id="busqueda-vuelos">
-        <label for="destino">Destino:</label>
-        <input type="text" id="destino" name="destino" required><br><br>
 
-        <label for="fecha">Fecha de viaje:</label>
-        <input type="date" id="fecha" name="fecha" required><br><br>
+    <header>
+        <h1>Bienvenido a nuestra Agencia de Viajes</h1>
+    </header>
 
-        <button type="submit">Buscar vuelos</button>
-    </form>
+    <section>
+        <h2>Reserva tu viaje</h2>
+        <form action="enviar-datos.php" method="POST">
+            <label for="destino">Destino:</label>
+            <input type="text" id="destino" name="destino" required placeholder="Ejemplo: París">
+
+            <label for="fecha">Fecha de viaje:</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <button type="submit">Buscar vuelos</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Nuestras Ofertas</h2>
+        <p>Descubre las mejores ofertas de vuelos y paquetes turísticos a precios increíbles.</p>
+    </section>
+
+    <section>
+        <h2>Testimonios</h2>
+        <p>"Gracias a esta agencia, pude viajar a mi destino soñado. ¡El servicio fue excelente!" - Cliente feliz</p>
+    </section>
+
 </body>
 </html>
