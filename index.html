@@ -41,22 +41,28 @@
 
     <img src="imagen1.jpg" alt="Descripción de la imagen 1">
     <img src="imagen2.jpg" alt="Descripción de la imagen 2">
-
     <script>
-        document.getElementById('formBusqueda').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita el envío del formulario
+        // Script para manejar el formulario de búsqueda
+        document.getElementById('formBusqueda').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita el envío tradicional del formulario
 
-            const destino = document.getElementById('destino').value;
+            const destino = document.getElementById('destino').value.trim();
             const fecha = document.getElementById('fecha').value;
             const resultado = document.getElementById('resultadoBusqueda');
 
-            if(destino && fecha) {
-                resultado.innerHTML = `<p>Mostrando resultados de vuelos para <strong>${destino}</strong> el <strong>${fecha}</strong>.</p>`;
+            if (destino && fecha) {
+                resultado.innerHTML = `
+                    <p>🔍 Mostrando resultados de vuelos para <strong>${destino}</strong> el <strong>${fecha}</strong>.</p>
+                    <ul>
+                        <li>Vuelo 1: ${destino} - ${fecha} - $300</li>
+                        <li>Vuelo 2: ${destino} - ${fecha} - $350</li>
+                        <li>Vuelo 3: ${destino} - ${fecha} - $400</li>
+                    </ul>
+                `;
             } else {
-                resultado.innerHTML = "<p>Por favor, completa todos los campos.</p>";
+                resultado.innerHTML = "<p style='color:red;'>⚠️ Por favor, completa todos los campos.</p>";
             }
         });
     </script>
-
 </body>
 </html>
